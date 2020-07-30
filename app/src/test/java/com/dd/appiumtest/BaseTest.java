@@ -1,9 +1,7 @@
-package com.dd.appiumtest.test;
+package com.dd.appiumtest;
 
 import com.dd.appiumtest.pages.MainPage;
 
-import org.junit.After;
-import org.junit.Before;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -15,7 +13,7 @@ import java.net.URL;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 
-class BaseTest {
+public class BaseTest {
 
     protected static final String APPIUM = "http://localhost:4723/wd/hub";
     protected static final String URL = "https://babel.es";
@@ -24,8 +22,8 @@ class BaseTest {
     private static final String PLATFORM_NAME = "Android";
     private static final String PLATFORM_VERSION = "7";
     private static final String DEVICE_NAME = "f2c4e47b";
-    private static final String DEVICE_ID = "f2c4e47b";
-//    private static final String DEVICE_ID = "emulator-5554";
+//    private static final String DEVICE_ID = "f2c4e47b";
+    private static final String DEVICE_ID = "emulator-5554";
     private static final String AUTOMATION_NAME = "UiAutomator2";
     private static final String BROWSER_NAME = "Chrome";
     private static final String CHROME_DRIVER_EXECUTABLE_DIR = "/Users/daniyar.nurgaliyev.local/Downloads/appium_chromedriver_temp";
@@ -36,16 +34,16 @@ class BaseTest {
     private DesiredCapabilities caps;
     private MainPage mainPage;
 
-    @Before
-    public void setUp() throws Exception {
+    public BaseTest() throws MalformedURLException, InterruptedException {
         setupDesiredCapabilities();
         setupObjects();
         setupDriver();
         acceptCookies();
+
     }
 
-    @After
-    public void tearDown() {
+
+    public void quitDriver() {
         if (driver != null) {
             driver.quit();
         }
