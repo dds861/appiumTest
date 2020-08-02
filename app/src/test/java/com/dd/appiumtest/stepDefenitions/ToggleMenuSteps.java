@@ -1,14 +1,13 @@
 package com.dd.appiumtest.stepDefenitions;
 
-import com.dd.appiumtest.base.BaseTest;
-import com.dd.appiumtest.pages.ToggleMenuPage;
-
 import java.net.MalformedURLException;
 
+import com.dd.appiumtest.base.BaseTest;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import com.dd.appiumtest.pages.ToggleMenuPage;
 
 public class ToggleMenuSteps extends BaseTest {
     private ToggleMenuPage toggleMenuPage = new ToggleMenuPage(driver, wait);
@@ -34,7 +33,6 @@ public class ToggleMenuSteps extends BaseTest {
 
     @And("I select Sectors item")
     public void i_select_sectors_item() {
-
         toggleMenuPage.selectSectors();
     }
 
@@ -61,6 +59,5 @@ public class ToggleMenuSteps extends BaseTest {
     @Then("I close toggle menu")
     public void i_close_toggle_menu() {
         toggleMenuPage.close();
-        quitDriver();
     }
 }

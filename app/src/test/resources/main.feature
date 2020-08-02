@@ -1,4 +1,6 @@
 Feature: XYZ
+
+  @ToggleMenuTest
   Scenario: S1
     Given The main page
     When I am on main page
