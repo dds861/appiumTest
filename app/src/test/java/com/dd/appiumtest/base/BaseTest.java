@@ -1,4 +1,4 @@
-package com.dd.appiumtest;
+package com.dd.appiumtest.base;
 
 import com.dd.appiumtest.pages.MainPage;
 
@@ -22,8 +22,8 @@ public class BaseTest {
     private static final String PLATFORM_NAME = "Android";
     private static final String PLATFORM_VERSION = "7";
     private static final String DEVICE_NAME = "f2c4e47b";
-//    private static final String DEVICE_ID = "f2c4e47b";
-    private static final String DEVICE_ID = "emulator-5554";
+    private static final String DEVICE_ID = "f2c4e47b";
+//    private static final String DEVICE_ID = "emulator-5554";
     private static final String AUTOMATION_NAME = "UiAutomator2";
     private static final String BROWSER_NAME = "Chrome";
     private static final String CHROME_DRIVER_EXECUTABLE_DIR = "/Users/daniyar.nurgaliyev.local/Downloads/appium_chromedriver_temp";

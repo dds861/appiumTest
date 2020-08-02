@@ -1,11 +1,12 @@
-package com.dd.appiumtest.steps;
+package com.dd.appiumtest.stepDefenitions;
 
-import com.dd.appiumtest.BaseTest;
+import com.dd.appiumtest.base.BaseTest;
 import com.dd.appiumtest.pages.ToggleMenuPage;
 
 import java.net.MalformedURLException;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -14,6 +15,10 @@ public class ToggleMenuSteps extends BaseTest {
 
     public ToggleMenuSteps() throws MalformedURLException, InterruptedException {
         super();
+    }
+
+    @Given("The main page")
+    public void the_main_page() {
     }
 
     @When("I am on main page")
@@ -29,20 +34,25 @@ public class ToggleMenuSteps extends BaseTest {
 
     @And("I select Sectors item")
     public void i_select_sectors_item() {
+
         toggleMenuPage.selectSectors();
     }
+
     @And("I select Services item")
     public void i_select_services_item() {
         toggleMenuPage.selectServices();
     }
+
     @And("I select Persons item")
     public void i_select_persons_item() {
         toggleMenuPage.selectPersons();
     }
+
     @And("I select Media item")
     public void i_select_media_item() {
         toggleMenuPage.selectMedia();
     }
+
     @And("I select Contacts item")
     public void i_select_contacts_item() {
         toggleMenuPage.selectContacts();

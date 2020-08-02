@@ -1,5 +1,6 @@
 Feature: XYZ
   Scenario: S1
+    Given The main page
     When I am on main page
     And I open toggle menu
     And I select Sectors item
