@@ -1,7 +1,5 @@
 package com.dd.appiumtest.base;
 
-import com.dd.appiumtest.pages.MainPage;
-
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -11,13 +9,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 
 public class BaseTest {
 
     protected static final String APPIUM = "http://localhost:4723/wd/hub";
-    protected static final String URL = "https://intranet.babel.es/";
+    protected static final String URL = "https://daniyar.nurgaliyev:Babel1986!@intranet.babel.es/";
     protected static final Integer TIME_OUT_IN_SECONDS = 10;
     protected static final Integer SLEEP_IN_MILLIS = 1000;
     private static final String PLATFORM_NAME = "Android";
@@ -30,11 +29,11 @@ public class BaseTest {
     private static final String CHROME_DRIVER_EXECUTABLE_DIR = "/Users/daniyar.nurgaliyev.local/Downloads/appium_chromedriver_temp";
     private static final String CHROME_DRIVER_CHROME_MAPPING_FILE = "/Users/daniyar.nurgaliyev.local/Downloads/appium_chromedriver_temp/chromedriverChromeMappingFile";
 
-    protected RemoteWebDriver driver;
+    protected RemoteWebDriver remoteWebDriver;
     protected AppiumDriver appiumDriver;
+    protected AndroidDriver androidDriver;
     protected WebDriverWait wait;
     private DesiredCapabilities caps;
-    private MainPage mainPage;
 
     public BaseTest() throws MalformedURLException, InterruptedException {
         setupDesiredCapabilities();
@@ -43,8 +42,8 @@ public class BaseTest {
     }
 
     public void quitDriver() {
-        if (driver != null) {
-            driver.quit();
+        if (remoteWebDriver != null) {
+            remoteWebDriver.quit();
         }
     }
 
@@ -61,14 +60,14 @@ public class BaseTest {
     }
 
     private void setupDriver() throws InterruptedException {
-        driver.get(URL);
+        remoteWebDriver.get(URL);
         Thread.sleep(SLEEP_IN_MILLIS);
     }
 
     private void setupObjects() throws MalformedURLException {
-        driver = new RemoteWebDriver(new URL(APPIUM), caps);
+        remoteWebDriver = new RemoteWebDriver(new URL(APPIUM), caps);
         appiumDriver = new AppiumDriver(new URL(APPIUM), caps);
-        wait = new WebDriverWait(driver, TIME_OUT_IN_SECONDS);
-        mainPage = new MainPage(driver, wait);
+        androidDriver = new AndroidDriver(new URL(APPIUM), caps);
+        wait = new WebDriverWait(remoteWebDriver, TIME_OUT_IN_SECONDS);
     }
 }

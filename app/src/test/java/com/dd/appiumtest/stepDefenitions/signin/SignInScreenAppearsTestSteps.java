@@ -10,7 +10,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class SignInScreenAppearsTestSteps extends BaseTest {
-    private SignInPage signInPage = new SignInPage(driver, wait, appiumDriver);
+    private SignInPage signInPage = new SignInPage(remoteWebDriver, wait, appiumDriver);
 
     public SignInScreenAppearsTestSteps() throws MalformedURLException, InterruptedException {
         super();
