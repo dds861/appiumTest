@@ -7,9 +7,9 @@ import java.net.MalformedURLException;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
-public class MainHooks extends BaseTest {
+public class BaseHooks extends BaseTest {
 
-    public MainHooks() throws MalformedURLException, InterruptedException {
+    public BaseHooks() throws MalformedURLException, InterruptedException {
         System.out.println("MainHooks");
     }
 
