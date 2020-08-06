@@ -9,6 +9,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static com.dd.appiumtest.contants.Constants.ANY_OTHER_WEBSITE;
+
 public class SignInScreenAppearsTestSteps extends BaseTest {
     private SignInPage signInPage = new SignInPage();
 
@@ -17,7 +19,7 @@ public class SignInScreenAppearsTestSteps extends BaseTest {
 
     @Given("Empty Page")
     public void empty_page() {
-        androidDriver.get("https://google.es/");
+        androidDriver.get(ANY_OTHER_WEBSITE);
     }
 
     @When("Intranet page entered")

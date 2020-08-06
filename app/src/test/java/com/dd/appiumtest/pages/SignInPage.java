@@ -28,12 +28,6 @@ public class SignInPage extends BaseTest {
         androidDriver.context(getWebContext(androidDriver));
     }
 
-    public void clickSignInButton() {
-        androidDriver.context(NATIVE_APP_CONTEXT);
-        wait.until(ExpectedConditions.presenceOfElementLocated(signInBy)).click();
-        androidDriver.context(getWebContext(androidDriver));
-    }
-
     public String getTextSignInTitle() {
         androidDriver.context(NATIVE_APP_CONTEXT);
         String signInTitle = wait.until(ExpectedConditions.presenceOfElementLocated(signInTitleBy)).getText();
@@ -43,5 +37,11 @@ public class SignInPage extends BaseTest {
 
     public String getTextUnAuthorizedPage() {
         return wait.until(ExpectedConditions.presenceOfElementLocated(unAuthorizedTextBy)).getText();
+    }
+
+    public void clickSignInButton() {
+        androidDriver.context(NATIVE_APP_CONTEXT);
+        wait.until(ExpectedConditions.presenceOfElementLocated(signInBy)).click();
+        androidDriver.context(getWebContext(androidDriver));
     }
 }

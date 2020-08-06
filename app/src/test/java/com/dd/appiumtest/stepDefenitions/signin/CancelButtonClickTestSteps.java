@@ -9,6 +9,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static com.dd.appiumtest.contants.Constants.TEXT_401_UNAUTHORIZED;
+import static com.dd.appiumtest.contants.Constants.TEXT_SIGN_IN;
+
 public class CancelButtonClickTestSteps extends BaseTest {
 
     private SignInPage signInPage = new SignInPage();
@@ -20,7 +23,7 @@ public class CancelButtonClickTestSteps extends BaseTest {
     public void sign_in_dialog_at_cancel_button_click_test() {
         androidDriver.get(URL);
         String textOnSingIn = signInPage.getTextSignInTitle();
-        assert textOnSingIn.equals("Sign in");
+        assert textOnSingIn.equals(TEXT_SIGN_IN);
     }
 
     @When("Cancel button clicked")
@@ -32,6 +35,6 @@ public class CancelButtonClickTestSteps extends BaseTest {
     @Then("Unauthorized page appears")
     public void unauthorized_page_appears() {
         String unAuthorizedText = signInPage.getTextUnAuthorizedPage();
-        assert unAuthorizedText.equals("401 UNAUTHORIZED");
+        assert unAuthorizedText.equals(TEXT_401_UNAUTHORIZED);
     }
 }
