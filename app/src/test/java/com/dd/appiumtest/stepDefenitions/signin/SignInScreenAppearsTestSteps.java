@@ -17,7 +17,7 @@ public class SignInScreenAppearsTestSteps extends BaseTest {
 
     @Given("Empty Page")
     public void empty_page() {
-        androidDriver.get("");
+        androidDriver.get("https://google.es/");
     }
 
     @When("Intranet page entered")
