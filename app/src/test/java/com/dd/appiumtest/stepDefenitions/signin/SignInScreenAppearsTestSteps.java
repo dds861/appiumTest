@@ -10,6 +10,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import static com.dd.appiumtest.contants.Constants.ANY_OTHER_WEBSITE;
+import static com.dd.appiumtest.contants.Constants.TEXT_SIGN_IN;
 
 public class SignInScreenAppearsTestSteps extends BaseTest {
     private SignInPage signInPage = new SignInPage();
@@ -29,6 +30,7 @@ public class SignInScreenAppearsTestSteps extends BaseTest {
 
     @Then("Sign in dialog appears")
     public void sign_in_dialog_appears() {
-        signInPage.getTextSignInTitle();
+        String textOnSingIn = signInPage.getTextSignInTitle();
+        assert textOnSingIn.equals(TEXT_SIGN_IN);
     }
 }
