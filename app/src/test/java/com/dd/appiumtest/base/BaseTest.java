@@ -19,7 +19,6 @@ public class BaseTest {
     protected static final String APPIUM = "http://localhost:4723/wd/hub";
     protected static final String URL = "https://intranet.babel.es/";
     protected static final Integer TIME_OUT_IN_SECONDS = 10;
-    protected static final Integer SLEEP_IN_MILLIS = 1000;
     private static final String PLATFORM_NAME = "Android";
     private static final String PLATFORM_VERSION = "7";
     private static final String DEVICE_NAME = "f2c4e47b";
@@ -61,7 +60,6 @@ public class BaseTest {
     }
 
     private void setupDriver() throws InterruptedException {
-        Thread.sleep(SLEEP_IN_MILLIS);
         androidDriver.get(URL);
     }
 
