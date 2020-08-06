@@ -10,7 +10,7 @@ import io.cucumber.junit.CucumberOptions;
         features = {"src/test/resources/"},
 //        glue = {"com/dd/appiumtest/stepDefenitions", "com/dd/appiumtest/hooks"},
         glue = {"com/dd/appiumtest/stepDefenitions"},
-        tags = "@SignInButtonClickWithUsernameOnlyTest",
+        tags = "@SignInButtonClickWithPasswordOnlyTest",
         plugin = {"pretty",
                 "html:target/SystemTestReports/html",
                 "json:target/SystemTestReports/json/report.json",
