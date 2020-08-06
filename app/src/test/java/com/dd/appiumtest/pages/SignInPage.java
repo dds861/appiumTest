@@ -11,7 +11,6 @@ import io.appium.java_client.MobileBy;
 
 public class SignInPage extends BaseTest {
 
-
     private By cancelBy = MobileBy.id("android:id/button2");
     private By signInBy = MobileBy.id("android:id/button1");
     private By usernameBy = MobileBy.id("com.android.chrome:id/username");
@@ -20,13 +19,8 @@ public class SignInPage extends BaseTest {
     //        private By signInTitleBy = MobileBy.xpath("//*[@text='Sign in']");
     private By unAuthorizedTextBy = MobileBy.xpath("/html/body/pre");
 
-
-    private static final String START_TEXT_SPANISH = "Inicio";
-    private static final String START_TEXT_ENGLISH = "START";
-
     public SignInPage() throws MalformedURLException, InterruptedException {
     }
-
 
     public void clickCancelButton() {
         androidDriver.context(NATIVE_APP_CONTEXT);
@@ -40,17 +34,14 @@ public class SignInPage extends BaseTest {
         androidDriver.context(getWebContext(androidDriver));
     }
 
-
-    public void checkSignInTitleAppears() {
-        androidDriver.get(URL);
+    public String getTextSignInTitle() {
         androidDriver.context(NATIVE_APP_CONTEXT);
         String signInTitle = wait.until(ExpectedConditions.presenceOfElementLocated(signInTitleBy)).getText();
-        assert signInTitle.equals("Sign in");
         androidDriver.context(getWebContext(androidDriver));
+        return signInTitle;
     }
 
-    public void unauthorizedPage() {
-        String unauthorizedText = wait.until(ExpectedConditions.presenceOfElementLocated(unAuthorizedTextBy)).getText();
-        assert unauthorizedText.equals("401 UNAUTHORIZED");
+    public String getTextUnAuthorizedPage() {
+        return wait.until(ExpectedConditions.presenceOfElementLocated(unAuthorizedTextBy)).getText();
     }
 }

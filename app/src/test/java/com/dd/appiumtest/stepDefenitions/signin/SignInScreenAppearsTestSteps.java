@@ -27,6 +27,6 @@ public class SignInScreenAppearsTestSteps extends BaseTest {
 
     @Then("Sign in dialog appears")
     public void sign_in_dialog_appears() {
-        signInPage.checkSignInTitleAppears();
+        signInPage.getTextSignInTitle();
     }
 }
