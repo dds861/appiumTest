@@ -37,6 +37,7 @@ public class SignInButtonClickWithIncorrectCredentialsTestSteps extends BaseTest
 
     @Then("Dialog to sign in appears")
     public void dialog_to_sign_in_appears() {
+        signInPage.clickSignInButton();
         String textOnSingIn = signInPage.getTextSignInTitle();
         assert textOnSingIn.equals(TEXT_SIGN_IN);
     }
