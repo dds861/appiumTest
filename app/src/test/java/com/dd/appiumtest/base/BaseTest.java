@@ -2,13 +2,14 @@ package com.dd.appiumtest.base;
 
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
-import io.appium.java_client.AppiumDriver;
+import javax.annotation.Nullable;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -16,7 +17,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 public class BaseTest {
 
     protected static final String APPIUM = "http://localhost:4723/wd/hub";
-    protected static final String URL = "https://daniyar.nurgaliyev:Babel1986!@intranet.babel.es/";
+    protected static final String URL = "https://intranet.babel.es/";
     protected static final Integer TIME_OUT_IN_SECONDS = 10;
     protected static final Integer SLEEP_IN_MILLIS = 1000;
     private static final String PLATFORM_NAME = "Android";
@@ -29,8 +30,7 @@ public class BaseTest {
     private static final String CHROME_DRIVER_EXECUTABLE_DIR = "/Users/daniyar.nurgaliyev.local/Downloads/appium_chromedriver_temp";
     private static final String CHROME_DRIVER_CHROME_MAPPING_FILE = "/Users/daniyar.nurgaliyev.local/Downloads/appium_chromedriver_temp/chromedriverChromeMappingFile";
 
-    protected RemoteWebDriver remoteWebDriver;
-    protected AppiumDriver appiumDriver;
+
     protected AndroidDriver androidDriver;
     protected WebDriverWait wait;
     private DesiredCapabilities caps;
@@ -42,8 +42,8 @@ public class BaseTest {
     }
 
     public void quitDriver() {
-        if (remoteWebDriver != null) {
-            remoteWebDriver.quit();
+        if (androidDriver != null) {
+            androidDriver.quit();
         }
     }
 
@@ -57,17 +57,28 @@ public class BaseTest {
         caps.setCapability(CapabilityType.BROWSER_NAME, BROWSER_NAME);
         caps.setCapability(AndroidMobileCapabilityType.CHROMEDRIVER_EXECUTABLE_DIR, CHROME_DRIVER_EXECUTABLE_DIR);
         caps.setCapability(AndroidMobileCapabilityType.CHROMEDRIVER_CHROME_MAPPING_FILE, CHROME_DRIVER_CHROME_MAPPING_FILE);
+
     }
 
     private void setupDriver() throws InterruptedException {
-        remoteWebDriver.get(URL);
         Thread.sleep(SLEEP_IN_MILLIS);
+        androidDriver.get(URL);
     }
 
     private void setupObjects() throws MalformedURLException {
-        remoteWebDriver = new RemoteWebDriver(new URL(APPIUM), caps);
-        appiumDriver = new AppiumDriver(new URL(APPIUM), caps);
         androidDriver = new AndroidDriver(new URL(APPIUM), caps);
-        wait = new WebDriverWait(remoteWebDriver, TIME_OUT_IN_SECONDS);
+        wait = new WebDriverWait(androidDriver, TIME_OUT_IN_SECONDS);
+    }
+
+
+    @Nullable
+    protected String getWebContext(AndroidDriver driver) {
+        ArrayList<String> contexts = new ArrayList(driver.getContextHandles());
+        for (String context : contexts) {
+            if (!context.equals("NATIVE_APP")) {
+                return context;
+            }
+        }
+        return null;
     }
 }
