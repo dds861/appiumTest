@@ -11,7 +11,7 @@ public class SignInButtonClickWithoutCredentialsTestSteps extends BaseTest {
     }
     @Given("Sign in dialog at SignInButtonClickWithoutCredentialsTest")
     public void sign_in_dialog_at_sign_in_button_click_without_credentials_test() {
-
+        androidDriver.get(URL);
     }
 
     @When("Sign in button clicked at SignInButtonClickWithoutCredentialsTest")

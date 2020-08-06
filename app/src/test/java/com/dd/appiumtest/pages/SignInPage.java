@@ -29,6 +29,7 @@ public class SignInPage extends BaseTest {
 
 
     public void clickCancelButton() {
+        androidDriver.get(URL);
         androidDriver.context("NATIVE_APP");
         wait.until(ExpectedConditions.presenceOfElementLocated(cancelBy)).click();
         androidDriver.context(getWebContext(androidDriver));
@@ -42,6 +43,7 @@ public class SignInPage extends BaseTest {
 
 
     public void checkSignInTitleAppears() {
+        androidDriver.get(URL);
         androidDriver.context("NATIVE_APP");
         String signInTitle = wait.until(ExpectedConditions.presenceOfElementLocated(signInTitleBy)).getText();
         assert signInTitle.equals("Sign in");

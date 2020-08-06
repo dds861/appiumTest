@@ -37,7 +37,6 @@ public class BaseTest {
     public BaseTest() throws MalformedURLException, InterruptedException {
         setupDesiredCapabilities();
         setupObjects();
-        setupDriver();
     }
 
     public void quitDriver() {
@@ -57,10 +56,6 @@ public class BaseTest {
         caps.setCapability(AndroidMobileCapabilityType.CHROMEDRIVER_EXECUTABLE_DIR, CHROME_DRIVER_EXECUTABLE_DIR);
         caps.setCapability(AndroidMobileCapabilityType.CHROMEDRIVER_CHROME_MAPPING_FILE, CHROME_DRIVER_CHROME_MAPPING_FILE);
 
-    }
-
-    private void setupDriver() throws InterruptedException {
-        androidDriver.get(URL);
     }
 
     private void setupObjects() throws MalformedURLException {
