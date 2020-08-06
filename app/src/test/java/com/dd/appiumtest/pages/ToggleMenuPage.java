@@ -1,7 +1,6 @@
 package com.dd.appiumtest.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -10,7 +9,6 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class ToggleMenuPage {
 
-    private RemoteWebDriver remoteWebDriver;
     private WebDriverWait wait;
     private AndroidDriver androidDriver;
 
@@ -19,8 +17,7 @@ public class ToggleMenuPage {
 //    private By openBy = MobileBy.AccessibilityId("s4-bodyContainer\\");
 //    private By openBy = MobileBy.AccessibilityId("Abrir menú");
 
-    public ToggleMenuPage(RemoteWebDriver remoteWebDriver, WebDriverWait wait, AndroidDriver androidDriver) {
-        this.remoteWebDriver = remoteWebDriver;
+    public ToggleMenuPage(WebDriverWait wait, AndroidDriver androidDriver) {
         this.wait = wait;
         this.androidDriver = androidDriver;
     }

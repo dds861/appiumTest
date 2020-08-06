@@ -10,7 +10,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class MyAreaTestSteps extends BaseTest {
-    private ToggleMenuPage toggleMenuPage = new ToggleMenuPage(remoteWebDriver, wait, androidDriver);
+    private ToggleMenuPage toggleMenuPage = new ToggleMenuPage(wait, androidDriver);
 
     public MyAreaTestSteps() throws MalformedURLException, InterruptedException {
         super();
