@@ -12,10 +12,7 @@ public class ToggleMenuPage {
     private WebDriverWait wait;
     private AndroidDriver androidDriver;
 
-        private By openBy = MobileBy.xpath("//*[@id=\"s4-bodyContainer\"]/div[1]/a");//*[@id="zz12_RootAspMenu"]/li/ul/li[1]/a/span/span
-//    private By openBy = MobileBy.xpath("//*[@content-desc='Abrir menú']");
-//    private By openBy = MobileBy.AccessibilityId("s4-bodyContainer\\");
-//    private By openBy = MobileBy.AccessibilityId("Abrir menú");
+    private By openBy = MobileBy.xpath("//*[@id=\"s4-bodyContainer\"]/div[1]/a");//*[@id="zz12_RootAspMenu"]/li/ul/li[1]/a/span/span
 
     public ToggleMenuPage(WebDriverWait wait, AndroidDriver androidDriver) {
         this.wait = wait;
@@ -23,12 +20,6 @@ public class ToggleMenuPage {
     }
 
     public void open() {
-
-//        remoteWebDriver.findElementByXPath("//android.view.View[@content-desc='Abrir menú']").click();
-//        MobileElement mobileElement = (MobileElement)chromeButtonElement;
-//        androidDriver.findElement(openBy).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(openBy)).click();
     }
-
-
 }
