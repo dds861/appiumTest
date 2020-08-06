@@ -1,5 +1,6 @@
 package com.dd.appiumtest.stepDefenitions.signin;
 
+import com.dd.appiumtest.base.BaseTest;
 import com.dd.appiumtest.pages.SignInPage;
 
 import java.net.MalformedURLException;
@@ -8,7 +9,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class CancelButtonClickTestSteps  {
+public class CancelButtonClickTestSteps extends BaseTest {
 
 
     private SignInPage signInPage = new SignInPage();
@@ -23,7 +24,10 @@ public class CancelButtonClickTestSteps  {
 
     @When("Cancel button clicked")
     public void cancel_button_clicked() {
+
+        androidDriver.get(URL);
         signInPage.clickCancelButton();
+
     }
 
     @Then("Unauthorized page appears")

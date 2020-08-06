@@ -26,6 +26,7 @@ public class BaseTest {
     //    private static final String DEVICE_ID = "emulator-5554";
     private static final String AUTOMATION_NAME = "UiAutomator2";
     private static final String BROWSER_NAME = "Chrome";
+    protected static final String NATIVE_APP_CONTEXT = "NATIVE_APP";
     private static final String CHROME_DRIVER_EXECUTABLE_DIR = "/Users/daniyar.nurgaliyev.local/Downloads/appium_chromedriver_temp";
     private static final String CHROME_DRIVER_CHROME_MAPPING_FILE = "/Users/daniyar.nurgaliyev.local/Downloads/appium_chromedriver_temp/chromedriverChromeMappingFile";
 
@@ -68,7 +69,7 @@ public class BaseTest {
     protected String getWebContext(AndroidDriver driver) {
         ArrayList<String> contexts = new ArrayList(driver.getContextHandles());
         for (String context : contexts) {
-            if (!context.equals("NATIVE_APP")) {
+            if (!context.equals(NATIVE_APP_CONTEXT)) {
                 return context;
             }
         }
