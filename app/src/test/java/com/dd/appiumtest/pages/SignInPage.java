@@ -1,18 +1,16 @@
 package com.dd.appiumtest.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import com.dd.appiumtest.base.BaseTest;
 
-import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.net.MalformedURLException;
+
 import io.appium.java_client.MobileBy;
 
-public class SignInPage {
+public class SignInPage extends BaseTest {
 
-    private RemoteWebDriver driver;
-    private AppiumDriver appiumDriver;
-    private WebDriverWait wait;
 
     private By cancelBy = MobileBy.id("android:id/button2");
     private By signInBy = MobileBy.id("android:id/button1");
@@ -22,52 +20,36 @@ public class SignInPage {
     //        private By signInTitleBy = MobileBy.xpath("//*[@text='Sign in']");
     private By unAuthorizedTextBy = MobileBy.xpath("/html/body/pre");
 
+
     private static final String START_TEXT_SPANISH = "Inicio";
     private static final String START_TEXT_ENGLISH = "START";
 
-    public SignInPage(RemoteWebDriver driver, WebDriverWait wait, AppiumDriver appiumDriver) {
-        this.driver = driver;
-        this.appiumDriver = appiumDriver;
-        this.wait = wait;
+    public SignInPage() throws MalformedURLException, InterruptedException {
     }
+
 
     public void clickCancelButton() {
+        androidDriver.context("NATIVE_APP");
         wait.until(ExpectedConditions.presenceOfElementLocated(cancelBy)).click();
+        androidDriver.context(getWebContext(androidDriver));
     }
 
+    public void clickSignInButton() {
+        androidDriver.context("NATIVE_APP");
+        wait.until(ExpectedConditions.presenceOfElementLocated(signInBy)).click();
+        androidDriver.context(getWebContext(androidDriver));
+    }
+
+
     public void checkSignInTitleAppears() {
+        androidDriver.context("NATIVE_APP");
+        String signInTitle = wait.until(ExpectedConditions.presenceOfElementLocated(signInTitleBy)).getText();
+        assert signInTitle.equals("Sign in");
+        androidDriver.context(getWebContext(androidDriver));
+    }
 
-//        String currentwindow = driver.getWindowHandle();
-//        Set<String> allWindows = driver.getWindowHandles();
-//        Iterator<String> i = allWindows.iterator();
-//        while(i.hasNext()){
-//            String childwindow = i.next();
-//            if(!childwindow.equalsIgnoreCase(currentwindow)){
-//                driver.switchTo().window(childwindow);
-//                System.out.println("The child window is "+childwindow);
-//            } else {
-//                System.out.println("There are no children");
-//            }
-//        }
-//        appiumDriver.findElementByXPath("//android.widget.Button[@resourceid=‘android:id/button1’]").click();
-//        driver.findElementByXPath("//android.widget.Button[@resourceid=‘android:id/button1’]").click();
-//        driver.findElement(By.name("Cancel")).click();
-//        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("android:id/button1")));
-////        wait.until(ExpectedConditions.alertIsPresent());
-//        Alert alert = driver.switchTo().alert();
-//        System.out.println(alert.getText());
-//        alert.accept();
-
-//        String text0 = driver.findElement(By.id(".alertTitle")).getText();
-//        System.out.println("text0: " + text0);
-//        String myWindowHandle = driver.getWindowHandle();
-//        System.out.println("myWindowHandle: " + myWindowHandle);
-////        driver.switchTo().window(myWindowHandle);
-//        WebDriver popup = driver.switchTo().frame(".action_bar_root");
-//        String text1 = popup.findElement(signInTitleBy).getText();
-//        ;
-//        System.out.println(text1);
-//        String text2 = wait.until(ExpectedConditions.presenceOfElementLocated(signInTitleBy)).getText();
-//        System.out.println(text2);
+    public void unauthorizedPage() {
+        String unauthorizedText = wait.until(ExpectedConditions.presenceOfElementLocated(unAuthorizedTextBy)).getText();
+        assert unauthorizedText.equals("401 UNAUTHORIZED");
     }
 }
