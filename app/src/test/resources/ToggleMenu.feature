@@ -1,4 +1,4 @@
-Feature: XYZ
+Feature: Toggle Menu Test
 
   @MyAreaTest
   Scenario: Check My Area Menu
