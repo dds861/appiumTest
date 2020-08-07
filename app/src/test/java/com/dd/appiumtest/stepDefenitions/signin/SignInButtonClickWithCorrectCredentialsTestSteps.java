@@ -11,6 +11,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static com.dd.appiumtest.contants.Constants.TEXT_CORRECT_PASSWORD;
+import static com.dd.appiumtest.contants.Constants.TEXT_CORRECT_USERNAME;
 import static com.dd.appiumtest.contants.Constants.TEXT_INTRANET_MAIN_PAGE_TITLE;
 import static com.dd.appiumtest.contants.Constants.TEXT_SIGN_IN;
 
@@ -32,12 +34,12 @@ public class SignInButtonClickWithCorrectCredentialsTestSteps extends BaseTest {
 
     @When("Username {string} is being entered correctly")
     public void username_is_being_entered_correctly(String username) {
-        signInPage.fillUsernameWithText(username);
+        signInPage.fillUsernameWithText(TEXT_CORRECT_USERNAME);
     }
 
     @And("Password {string} is being entered correctly")
     public void password_is_being_entered_correctly(String password) {
-        signInPage.fillPasswordWithText(password);
+        signInPage.fillPasswordWithText(TEXT_CORRECT_PASSWORD);
     }
 
     @Then("Main intranet page is being opened")
