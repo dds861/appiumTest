@@ -14,3 +14,9 @@
 .cxx
 
 .idea/
+
+app/target/SystemTestReports/html
+
+app/target/SystemTestReports/json/report.json
+
+app/target/SystemTestReports/junit/report.xml
