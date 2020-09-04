@@ -44,4 +44,16 @@ public class SignInPage extends BaseTest {
         wait.until(ExpectedConditions.presenceOfElementLocated(signInBy)).click();
         androidDriver.context(getWebContext(androidDriver));
     }
+
+    public void fillUsernameWithText(String username) {
+        androidDriver.context(NATIVE_APP_CONTEXT);
+        wait.until(ExpectedConditions.presenceOfElementLocated(usernameBy)).sendKeys(username);
+        androidDriver.context(getWebContext(androidDriver));
+    }
+
+    public void fillPasswordWithText(String password) {
+        androidDriver.context(NATIVE_APP_CONTEXT);
+        wait.until(ExpectedConditions.presenceOfElementLocated(passwordBy)).sendKeys(password);
+        androidDriver.context(getWebContext(androidDriver));
+    }
 }
